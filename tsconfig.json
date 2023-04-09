@@ -1,0 +1,15 @@
+// ts.config
+{
+  "compilerOptions": {
+    "target": "ES6",                                
+    "module": "commonjs",                           
+    // "sourceMap": true,                           
+    "outDir": "./build",
+    // "rootDir": "./src",                           
+    "strict": true,                                 
+    "esModuleInterop": true,                        
+    "skipLibCheck": true,                           
+    "forceConsistentCasingInFileNames": true        
+  },
+  "exclude": ["node_modules"]
+}
