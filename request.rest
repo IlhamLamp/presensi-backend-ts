@@ -1,0 +1,98 @@
+# ============== U S E R ===============
+
+### Get Siswa
+PATCH http://localhost:5000/users/335448d3-d6cb-4464-9571-632aea5c64d1
+Content-Type: application/json
+
+{
+    "name": "dearLi",
+    "email": "dear@mail.com",
+    "password": "",
+    "confPassword": "",
+    "role": "user"
+}
+
+
+
+
+# ============== S I S W A ===============
+
+### Get Siswa
+GET http://localhost:5000/siswa
+
+### Get Siswa By NISN
+GET http://localhost:5000/siswa/1122
+
+### Create Siswa
+POST http://localhost:5000/siswa
+Content-Type: application/json
+
+{
+    "nisn": "2211",
+    "nama": "acane",
+    "jk": "P",
+    "email": "acane@mail.com",
+    "password": "acane",
+    "confPassword": "acane",
+    "tahunAjaranId": "2",
+    "kelasId": "9"
+}
+
+### Update Siswa by NISN
+PATCH http://localhost:5000/siswa/2211
+Content-Type: application/json
+
+{
+    "nisn": "2211",
+    "nama": "acanee",
+    "jk": "P",
+    "email": "acane@mail.com",
+    "password": "",
+    "confPassword": "",
+    "tahunAjaranId": "2",
+    "kelasId": "9"
+    
+}
+
+### Delete Siswa by NISN
+DELETE http://localhost:5000/siswa/312010041
+
+
+# ============== G U R U ===============
+
+### Get Guru
+GET http://localhost:5000/guru
+
+### Get Guru By NUPTK
+GET http://localhost:5000/guru/3231
+
+### Create Guru
+POST http://localhost:5000/guru
+Content-Type: application/json
+
+{
+    "nuptk": "3231",
+    "nama": "zuto",
+    "jk": "P",
+    "email": "zuto@mail.com",
+    "password": "zuto",
+    "confPassword": "zuto"
+}
+
+### Update Guru by NUPTK
+PATCH http://localhost:5000/guru/3231
+Content-Type: application/json
+
+{
+    "nuptk": "3231",
+    "nama": "zuto",
+    "jk": "P",
+    "email": "zuto@mail.com",
+    "password": "zuto",
+    "confPassword": "zuto"
+    
+}
+
+### Delete Guru by NUPTK
+DELETE http://localhost:5000/guru/3231
+

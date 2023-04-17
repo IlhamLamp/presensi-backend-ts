@@ -1,25 +1,54 @@
-require('dotenv').config();
-import express from 'express';
-import db from './models';
-import { users } from './seeders/users';
+import express, {Request, Response} from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
+import session, { Store } from 'express-session';
+import SequelizeStore from 'connect-session-sequelize';
+import sequelizeConnection from './src/config/dbConnect';
 
+// model
+// import User from './src/db/models/User';
+// import Guru from './src/db/models/Guru';
+// import Siswa from './src/db/models/Siswa';
 
+// routes
+import UserRoute from './src/routes/UserRoute';
+import GuruRoute from './src/routes/GuruRoute';
+import SiswaRoute from './src/routes/SiswaRoute';
+
+// Conf
+dotenv.config();
 const app = express();
-const port: number = parseInt(process.env.APP_PORT!);
+// const sessionStore = SequelizeStore(session.Store);
 
-// DEFINE SEEDER
-const createUsers = () => {
-    users.map(user => {
-        db.User.create(user)
-    })
-}
-// createUsers();
+// const store = new sessionStore({
+//     db: sequelizeConnection,
+//     table: "Session"
+// });
+
+// app.use(session({
+//     secret: process.env.SESS_SECRET!,
+//     resave: false,
+//     saveUninitialized: true,
+//     store: store,
+//     cookie: {
+//         secure: 'auto'
+//     }
+// }));
+
+// cors
+app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000'
+}))
+
+app.use(express.json());
+app.use(UserRoute);
+app.use(GuruRoute);
+app.use(SiswaRoute);
 
 try {
-    db.sequelize.sync().then(() => {
-        app.listen(port, () => {
-            console.log(`🚀 App listening on port ${port}`)
-        })
+    app.listen(process.env.APP_PORT, () => {
+        console.log(`🚀 App listening on port ${process.env.APP_PORT}`)
     })
 } catch (err) {
     console.log("🐊 Error!")
