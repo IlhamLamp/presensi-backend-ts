@@ -8,11 +8,11 @@ enum JenisKelamin {
 
 interface GuruAttributes {
   id?: number,
-  nuptk?: string,
-  nama?: string,
-  jk?: JenisKelamin,
-  email?: string,
-  password?: string,
+  nuptk?: string | null,
+  nama?: string | null,
+  jk?: JenisKelamin | null,
+  email?: string | null,
+  password?: string | null,
 
   createdAt?: Date,
   updatedAt?: Date,
@@ -42,36 +42,27 @@ Guru.init({
   },
   nuptk: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
     unique: true,
-    validate: {
-      notEmpty: true
-    }
   },
   nama: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    allowNull: true,
   },
   jk: {
     type: DataTypes.ENUM('L','P'),
-    allowNull: false
+    allowNull: true
   },
   email: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
     validate: {
       isEmail: true
     }
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    allowNull: true,
   },
 }, {
   sequelize: connection,

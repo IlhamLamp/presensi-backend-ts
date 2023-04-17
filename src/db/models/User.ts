@@ -3,11 +3,11 @@ import connection from "../../config/dbConnect";
 
 interface UserAttributes {
   id?: number,
-  uuid?: string,
-  name?: string,
-  email?: string,
-  password?: string,
-  role?: string,
+  uuid?: string | null,
+  name?: string | null,
+  email?: string | null,
+  password?: string | null,
+  role?: string | null,
 
   createdAt?: Date,
   updatedAt?: Date,
@@ -45,26 +45,22 @@ User.init({
   },
   name: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-    }
+    allowNull: true,
   },
   email: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
     validate: {
-      notEmpty: true,
       isEmail: true
     }
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   },
   role: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
   }
 }, {
   sequelize: connection,

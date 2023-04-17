@@ -3,8 +3,8 @@ import connection from "../../config/dbConnect";
 
 interface KelasAttributes {
   id?: number;
-  kodeKelas?: string;
-  guruId?: number;
+  kodeKelas?: string | null;
+  guruId?: number | null;
 
   createdAt?: Date;
   updatedAt?: Date;
@@ -20,6 +20,13 @@ class Kelas extends Model<KelasAttributes, KelasInput> implements KelasAttribute
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
+
+  static associate(models: any) {
+    Kelas.belongsTo(models.Guru, {
+      foreignKey: 'guruId'
+    })
+  }
+
 } 
 
 Kelas.init({
@@ -31,11 +38,16 @@ Kelas.init({
   },
   kodeKelas: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    allowNull: true,
   },
+  guruId: {
+    type: DataTypes.INTEGER,
+    allowNull: true,
+    references: {
+      model: 'guru',
+      key: 'id'
+    }
+  }
 }, {
   sequelize: connection,
   modelName: 'Kelas',

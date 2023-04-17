@@ -7,14 +7,14 @@ enum JenisKelamin {
 }
 
 interface SiswaAttributes {
-  id?: number,
-  nisn?: string,
-  nama?: string,
-  jk?: JenisKelamin,
-  email?: string,
-  password?: string,
-  tahunAjaranId?: number,
-  kelasId?: number,
+  id?: number | null,
+  nisn?: string | null,
+  nama?: string | null,
+  jk?: JenisKelamin | null,
+  email?: string | null,
+  password?: string | null,
+  tahunAjaranId?: number | null,
+  kelasId?: number | null,
 
   createdAt?: Date,
   updatedAt?: Date,
@@ -56,43 +56,31 @@ Siswa.init({
   },
   nisn: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
     unique: true,
-    validate: {
-      notEmpty: true
-    }
   },
   nama: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    allowNull: true,
   },
   jk: {
     type: DataTypes.ENUM('L', 'P'),
-    allowNull: false
+    allowNull: true
   },
   email: {
     type: DataTypes.STRING,
-    allowNull: false,
+    allowNull: true,
     validate: {
       isEmail: true
     }
   },
   password: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    allowNull: true,
   },
   tahunAjaranId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    },
+    allowNull: true,
     references: {
       model: 'tahunajaran',
       key: 'id'
@@ -100,7 +88,7 @@ Siswa.init({
   },
   kelasId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
     references: {
       model: 'kelas',
       key: 'id'

@@ -3,7 +3,7 @@ import connection from "../../config/dbConnect";
 
 interface TahunAjaranAttributes {
   id?: number,
-  TA?: string,
+  TA?: string | null,
 
   createdAt?: Date,
   updatedAt?: Date,
@@ -29,10 +29,7 @@ TahunAjaran.init({
   },
   TA: {
     type: DataTypes.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
+    allowNull: true,
   }
 }, {
   sequelize: connection,
