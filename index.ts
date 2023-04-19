@@ -1,4 +1,5 @@
 import express, {Request, Response} from 'express';
+import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import session, { Store } from 'express-session';
@@ -14,6 +15,7 @@ import sequelizeConnection from './src/config/dbConnect';
 import UserRoute from './src/routes/UserRoute';
 import GuruRoute from './src/routes/GuruRoute';
 import SiswaRoute from './src/routes/SiswaRoute';
+import RegisterRoute from './src/routes/RegisterRoute';
 
 // Conf
 dotenv.config();
@@ -42,9 +44,11 @@ app.use(cors({
 }))
 
 app.use(express.json());
+app.use(cookieParser());
 app.use(UserRoute);
 app.use(GuruRoute);
 app.use(SiswaRoute);
+app.use(RegisterRoute);
 
 try {
     app.listen(process.env.APP_PORT, () => {

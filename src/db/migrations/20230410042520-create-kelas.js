@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       guruId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         references: {
           model: 'guru',
           key: 'id'

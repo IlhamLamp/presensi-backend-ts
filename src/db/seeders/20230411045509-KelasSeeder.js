@@ -14,40 +14,64 @@ module.exports = {
     */
     await queryInterface.bulkInsert('Kelas', [
       {
-        kodeKelas: 'XA1'
+        kodeKelas: 'XA1',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XA2'
+        kodeKelas: 'XA2',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XS1'
+        kodeKelas: 'XS1',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XS2'
+        kodeKelas: 'XS2',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XIA1'
+        kodeKelas: 'XIA1',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XIA2'
+        kodeKelas: 'XIA2',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XIS1'
+        kodeKelas: 'XIS1',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XIS2'
+        kodeKelas: 'XIS2',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XIIA1'
+        kodeKelas: 'XIIA1',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XIIA2'
+        kodeKelas: 'XIIA2',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XIIS1'
+        kodeKelas: 'XIIS1',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
-        kodeKelas: 'XIIS2'
+        kodeKelas: 'XIIS2',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
     ], {});
   },

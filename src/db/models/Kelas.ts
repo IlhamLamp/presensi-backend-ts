@@ -41,7 +41,7 @@ Kelas.init({
     allowNull: true,
   },
   guruId: {
-    type: DataTypes.INTEGER,
+    type: DataTypes.BIGINT,
     allowNull: true,
     references: {
       model: 'guru',

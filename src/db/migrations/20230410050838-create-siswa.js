@@ -25,7 +25,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       tahunAjaranId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         references: {
           model: 'tahunajaran',
           key: 'id'
@@ -34,7 +34,7 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       kelasId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.BIGINT,
         references: {
           model: 'kelas',
           key: 'id'

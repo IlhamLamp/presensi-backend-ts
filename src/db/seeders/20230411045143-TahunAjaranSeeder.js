@@ -15,18 +15,28 @@ module.exports = {
     await queryInterface.bulkInsert('TahunAjaran', [
       {
         TA: '2019',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         TA: '2020',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         TA: '2021',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         TA: '2022',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         TA: '2023',
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
     ], {});
   },
